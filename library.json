@@ -1,0 +1,25 @@
+{
+    "name": "Pattern",
+    "version": "0.0.1",
+    "keywords": "Design, Pattern",
+    "description": "Collection of design pattern",
+    "authors": {
+        "name": "Muhammad Salman Galileo",
+        "email": "salman.galileo@gmail.com",
+        "maintainer": true
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ttarnowski/uniuno.git"
+    },
+    "export": {
+        "exclude": [
+            "test/*"
+        ]
+    },
+    "license": "MIT",
+    "dependencies": {
+    },
+    "frameworks": "*",
+    "platforms": "*"
+}
