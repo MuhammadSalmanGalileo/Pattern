@@ -48,6 +48,14 @@ void test_init_observable() {
     TEST_ASSERT_EQUAL_INT(data, testObservable.getState());
 }
 
+void setUp() {
+
+}
+
+void tearDown() {
+    
+}
+
 int main(int argc, char **argv) {
     UNITY_BEGIN();
     RUN_TEST(test_init_observable);

@@ -17,19 +17,29 @@ class PollableFunction: public Pollable {
         };
 };
 
-class IntervalPollable: public Pollable {
+template<class T>
+class TIntervalPollable: public Pollable {
     private:
         bool _first;
-        unsigned long _lastTime;
-        const unsigned long _interval;
-        const std::function<unsigned long(void)> _timeFunc;
+        T _lastTime;
+        const T _interval;
+        const std::function<T(void)> _timeFunc;
     protected:
         virtual void intervalPoll() = 0;
     public:
-        IntervalPollable(unsigned long interval, std::function<unsigned long(void)> timeFunc): 
+        TIntervalPollable(T interval, std::function<T(void)> timeFunc): 
             _first(true), _interval(interval), _timeFunc(timeFunc) {
             _lastTime = _timeFunc();
         }
 
-        virtual void poll();
+        virtual void poll() {
+            T currentTime = _timeFunc();
+            if((currentTime - _lastTime >= _interval) || _first) {
+                _first = false;
+                _lastTime = currentTime;
+                intervalPoll();
+            }
+        }
 };
+
+using IntervalPollable = TIntervalPollable<unsigned long>;

@@ -27,6 +27,14 @@ void test_interval() {
     TEST_ASSERT_EQUAL_INT(data+1, test.data);
 }
 
+void setUp() {
+
+}
+
+void tearDown() {
+    
+}
+
 int main(int argc, char **argv) {
     UNITY_BEGIN();
     RUN_TEST(test_interval);
